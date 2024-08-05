@@ -1,12 +1,15 @@
 # require 'minitest/autorun'
 require_relative '../src/roman_numerals'
 
-RSpec.describe 'An example group' do
-    it 'single symbol test' do
-        expect('I').to eq(to_roman(1))
-    end
-    it 'single symbol test' do
-        expect('V').to eq(to_roman(5))
+RSpec.describe 'Roman Numerals Converter' do
+    shared_examples 'a roman numeral converter' do |numeral, roman|
+        it "convert #{numeral} to #{roman}" do
+            expect(to_roman(numeral)).to eq(roman)
+        end
     end
 
+    describe 'single symbols' do
+        it_behaves_like 'a roman numeral converter', 1, 'I'
+        it_behaves_like 'a roman numeral converter', 5, 'V'
+    end
 end
