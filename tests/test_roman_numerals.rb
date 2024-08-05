@@ -30,5 +30,24 @@ RSpec.describe 'Roman Numerals Converter' do
       it_behaves_like 'a roman numeral converter', 99, 'XCIX'
       it_behaves_like 'a roman numeral converter', 2021, 'MMXXI'
     end
+
+  describe 'edge cases' do
+    it 'returns an empty string for 0' do
+      expect(to_roman(0)).to eq('')
+    end
+
+    it 'handles negative numbers' do
+      expect(to_roman(-1)).to eq('')
+    end
+
+    it 'handles very large numbers' do
+      expect(to_roman(4000)).to eq('')
+    end
+
+    it 'handles non-integer inputs' do
+      expect { to_roman('a') }.to raise_error(ArgumentError)
+      expect { to_roman(3.14) }.to raise_error(ArgumentError)
+    end
   end
+end
   

@@ -1,4 +1,7 @@
 def to_roman(num)
+    raise ArgumentError, 'Input must be an integer' unless num.is_a?(Integer)
+    return '' if num <= 0 || num >= 4000
+    
     roman_mapping = {
         1000 => 'M',
         900 => 'CM',
