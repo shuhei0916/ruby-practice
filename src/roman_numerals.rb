@@ -1,20 +1,27 @@
 def to_roman(num)
-    case num 
-    when 1
-        "I"
-    when 5
-        "V"
-    when 10
-        "X"
-    when 50
-        "L"
-    when 100
-        "C"
-    when 500
-        "D"
-    when 1000
-        "M"
-    else
-        ""
+    roman_mapping = {
+        1000 => 'M',
+        900 => 'CM',
+        500 => 'D',
+        400 => 'CD',
+        100 => 'C',
+        90 => 'XC',
+        50 => 'L',
+        40 => 'XL',
+        10 => 'X',
+        9 => 'IX',
+        5 => 'V',
+        4 => 'IV',
+        1 => 'I'
+    }
+  
+    result = ''
+    roman_mapping.each do |value, letter|
+      while num >= value
+        result += letter
+        num -= value
+      end
     end
-end
+  
+    result
+  end
