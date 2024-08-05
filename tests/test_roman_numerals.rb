@@ -11,5 +11,7 @@ RSpec.describe 'Roman Numerals Converter' do
     describe 'single symbols' do
         it_behaves_like 'a roman numeral converter', 1, 'I'
         it_behaves_like 'a roman numeral converter', 5, 'V'
+        it_behaves_like 'a roman numeral converter', 10, 'X'
+
     end
 end
